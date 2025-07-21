@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Options</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    .card {
+      max-width: 100%;
+      width: 92%;
+      background-color: #ffffff;
+      margin: 30px auto;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .logos {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logos img {
+      height: 40px;
+      max-width: 48%;
+      object-fit: contain;
+    }
+
+    .amount-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #111;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      width: 100%;
+      background-color: #d00000;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #b00000;
+    }
+
+    .tips {
+      text-align: left;
+      margin-top: 25px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .tips h4 {
+      margin-bottom: 10px;
+    }
+
+    .tips ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .tips li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 16px;
+      }
+
+      .logos img {
+        height: 35px;
+      }
+
+      .amount-title {
+        font-size: 18px;
+      }
+
+      .btn {
+        font-size: 15px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="logos">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/95/Digital_India_logo.svg/1200px-Digital_India_logo.svg.png" alt="Digital India" />
+      <img src="https://www.presentations.gov.in/wp-content/uploads/2020/06/NIC_Preview-1.png" alt="NIC" />
+    </div>
+
+    <div class="amount-title">Amount Pay ₹13 /-</div>
+
+    <!-- ✅ Buttons with navigation -->
+    <button class="btn" onclick="goTo('upi-payment.html')">UPI Payment</button>
+    <button class="btn" onclick="goTo('card-payment.html')">Card Payment</button>
+    <button class="btn" onclick="goTo('net-banking.html')">Net Banking</button>
+    
+    
+
+    <div class="tips">
+      <h4><strong>Safe Banking Tips:</strong></h4>
+      <ul>
+        <li>Be cautious of phishing and vishing attempts</li>
+        <li>Avoid sharing account-related information</li>
+        <li>Carefully read terms before proceeding</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ✅ Redirect Script -->
+  <script>
+    function goTo(page) {
+      window.location.href = page;
+    }
+  </script>
+
+</body>
+</html>

