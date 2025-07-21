@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Successful</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      text-align: center;
+      padding: 0 16px;
+    }
+
+    .top-image-box {
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .top-image-box img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .top-image-box p {
+      font-size: 12px;
+      color: #555;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 20px;
+      color: #111;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 20px 0;
+    }
+
+    .note {
+      text-align: left;
+      font-size: 14px;
+      color: #333;
+      max-width: 500px;
+      margin: 0 auto 30px;
+    }
+
+    .note strong {
+      display: block;
+      font-size: 16px;
+      color: #1976d2;
+      margin-bottom: 10px;
+    }
+
+    .exit-btn {
+      background-color: #d00000;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      margin-bottom: 40px;
+    }
+
+    .exit-btn:hover {
+      background-color: #b00000;
+    }
+
+    @media (max-width: 480px) {
+      .note {
+        font-size: 13px;
+      }
+
+      .exit-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Government Emblem -->
+  <div class="top-image-box">
+    <img src="https://www.logopeople.in/wp-content/uploads/2013/01/government-of-india.jpg" alt="Govt of India Emblem" />
+    <p>Government Of India</p>
+  </div>
+
+  <!-- Main Heading -->
+  <h2>Payment Successful</h2>
+  <hr />
+
+  <!-- Important Note Section -->
+  <div class="note">
+    <strong>Important Note:</strong>
+    Please be patient as we verify your details. This process may take a minimum of 24 hours. You will receive a notification once your details are successfully verified. We appreciate your patience and kindly request that you do not uninstall the app, as it may prevent you from receiving notifications.<br><br>
+    Thank you.
+  </div>
+
+  <!-- Exit Button -->
+  <button class="exit-btn" onclick="window.close()">EXIT</button>
+
+</body>
+</html>

